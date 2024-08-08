@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "/users")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class UserController {
         return ResponseEntity.created(uri).build();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserDTO> findById(@PathVariable String id) {
         User obj = service.findById(id);
         return ResponseEntity.ok().body(new UserDTO(obj));
